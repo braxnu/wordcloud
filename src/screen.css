@@ -1,0 +1,75 @@
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.header {
+  border: 1px dashed brown;
+}
+
+.cloud {
+  border: 1px dashed pink;
+  /*float: left;
+  width: 100%;*/
+  margin-right: 400px;
+  overflow: hidden;
+}
+
+.details {
+  border: 1px dashed green;
+  width: 400px;
+  float: right;
+}
+
+.details div {
+    margin: 5px;
+}
+
+.topic {
+    float: left;
+    margin: 10px;
+    cursor: pointer;
+}
+
+span.positive,
+.sentiment-high {
+    color: green;
+}
+
+span.neutral,
+.sentiment-normal {
+    color: gray;
+}
+
+span.negative,
+.sentiment-low {
+    color: red;
+}
+
+.details div.total-row {
+    margin: 15px 5px;
+}
+
+.popularity-1 {
+    font-size: 15pt;
+}
+
+.popularity-2 {
+    font-size: 18pt;
+}
+
+.popularity-3 {
+    font-size: 21pt;
+}
+
+.popularity-4 {
+    font-size: 24pt;
+}
+
+.popularity-5 {
+    font-size: 27pt;
+}
+
+.popularity-6 {
+    font-size: 30pt;
+}
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My topics challenge</title>
+    <link rel="stylesheet" type="text/css" href="screen.css">
+    <script data-main="main" src="../bower_components/requirejs/require.js"></script>
+
+    <script type="text/javascript">
+    require.config({
+        paths: {
+            backbone: '../bower_components/backbone/backbone',
+            jquery: '../bower_components/jquery/dist/jquery',
+            underscore: '../bower_components/underscore/underscore'
+        },
+        shim: {
+            backbone: {
+                deps: ['underscore', 'jquery'],
+                exports: 'Backbone'
+            },
+            underscore: {
+                exports: '_'
+            },
+            jquery: {
+                exports: '$'
+            }
+        }
+    });
+    </script>
+</head>
+<body>
+    <div class="header">
+        My topics challenge
+    </div>
+    <div class="details">
+        <div>Information on topic "<span class="label"></span>"</div>
+        <div class="total-row">Total mentions <span class="total"></span></div>
+        <div>Positive mentions <span class="positive"></span></div>
+        <div>Neutral mentions <span class="neutral"></span></div>
+        <div>Negative mentions <span class="negative"></span></div>
+    </div>
+    <div class="cloud"></div>
+</body>
+</html>
