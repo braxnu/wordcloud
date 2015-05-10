@@ -11,8 +11,7 @@ define([
 
         className: 'cloud',
 
-        initialize: function(options) {
-            this.collection = options.collection;
+        initialize: function() {
             this.listenTo(this.collection, 'sync', this.render);
         },
 
