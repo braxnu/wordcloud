@@ -29,14 +29,16 @@ define([
             };
         },
 
+        updateField: function (htmlContent, cssClass) {
+            var selector = '.' + cssClass;
+
+            this.$el.find(selector).html(htmlContent);
+        },
+
         render: function (options) {
             var renderData = this.getRenderData(options.model);
 
-            _.mapObject(renderData, function (htmlContent, cssClass) {
-                var selector = '.' + cssClass;
-
-                this.$el.find(selector).html(htmlContent);
-            }, this);
+            _.mapObject(renderData, this.updateField, this);
         }
     });
 });
