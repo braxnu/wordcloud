@@ -1,13 +1,33 @@
-define([
-  'jquery',
-  'views/app'
-], function (
-  $,
-  AppView
-) {
-  'use strict';
+require.config({
+    paths: {
+        backbone: '../bower_components/backbone/backbone',
+        jquery: '../bower_components/jquery/dist/jquery',
+        underscore: '../bower_components/underscore/underscore'
+    },
+    shim: {
+        backbone: {
+            deps: ['underscore', 'jquery'],
+            exports: 'Backbone'
+        },
+        underscore: {
+            exports: '_'
+        },
+        jquery: {
+            exports: '$'
+        }
+    }
+});
 
-  var appView = new AppView({
-    el: window.document.body
-  });
+define([
+    'jquery',
+    'views/app'
+], function (
+    $,
+    AppView
+) {
+    'use strict';
+
+    return new AppView({
+        el: window.document.body
+    });
 });

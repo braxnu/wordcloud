@@ -4,28 +4,6 @@
     <title>My topics challenge</title>
     <link rel="stylesheet" type="text/css" href="screen.css">
     <script data-main="main" src="../bower_components/requirejs/require.js"></script>
-
-    <script type="text/javascript">
-    require.config({
-        paths: {
-            backbone: '../bower_components/backbone/backbone',
-            jquery: '../bower_components/jquery/dist/jquery',
-            underscore: '../bower_components/underscore/underscore'
-        },
-        shim: {
-            backbone: {
-                deps: ['underscore', 'jquery'],
-                exports: 'Backbone'
-            },
-            underscore: {
-                exports: '_'
-            },
-            jquery: {
-                exports: '$'
-            }
-        }
-    });
-    </script>
 </head>
 <body>
     <div class="header">
