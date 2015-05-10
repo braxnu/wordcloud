@@ -33,7 +33,7 @@ define([
         });
 
         it('uses TopicView to render topic items', function () {
-            var stub = sinon.stub(TopicView.prototype, 'render');
+            var stub = sinon.stub(TopicView.prototype, 'initialize');
 
             CloudView.prototype.renderTopic.call(
                 new Backbone.View(),
@@ -42,7 +42,7 @@ define([
 
             expect(stub.called).toBe(true);
 
-            TopicView.prototype.render.restore();
+            TopicView.prototype.initialize.restore();
         });
 
     });
