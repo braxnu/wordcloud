@@ -21,19 +21,13 @@ define([
                     model: topicModel
                 });
 
-            topicView.render();
             this.el.appendChild(topicView.el);
-            this.listenTo(topicView, 'topic:clicked', this.onTopicClicked);
 
             return topicView;
         },
 
         render: function() {
             this.collection.each(this.renderTopic, this);
-        },
-
-        onTopicClicked: function(options) {
-            this.trigger('topic:clicked', options);
         }
 
     });

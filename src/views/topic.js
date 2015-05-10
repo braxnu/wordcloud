@@ -1,7 +1,9 @@
 define([
-    'backbone'
+    'backbone',
+    'events'
 ], function (
-    Backbone
+    Backbone,
+    events
 ) {
     'use strict';
 
@@ -20,7 +22,7 @@ define([
         },
 
         onClick: function () {
-            this.trigger('topic:clicked', {
+            events.trigger('topic:clicked', {
                 model: this.model
             });
         }

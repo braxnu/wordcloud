@@ -26,11 +26,6 @@ define([
             });
 
             topicCollection.fetch();
-            this.listenTo(this.cloudView, 'topic:clicked', this.onTopicClicked);
-        },
-
-        onTopicClicked: function (options) {
-            this.detailsView.render(options);
         }
 
     });

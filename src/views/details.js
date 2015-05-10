@@ -1,15 +1,21 @@
 define([
     'backbone',
-    'underscore'
+    'underscore',
+    'events'
 ], function (
     Backbone,
-    _
+    _,
+    events
 ) {
     'use strict';
 
     return Backbone.View.extend({
 
         className: 'details',
+
+        initialize: function () {
+            this.listenTo(events, 'topic:clicked', this.render);
+        },
 
         getRenderData: function (topicModel) {
             var sentiment = topicModel.get('sentiment') || {};
