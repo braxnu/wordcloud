@@ -29,7 +29,7 @@ Execute
 grunt build
 ```
 
-This will run tests and build deployable files into /repo/target/ direcotry.
+This will run tests and build deployable files into /repo/target/ directory.
 You can now start your web server in /repo/target/ directory and point your
-browser to http://localhost/ to see the final
-effect.
+browser to http://localhost/ to see the final effect.
+Code documentation will be generated into /repo/doc/ directory.
