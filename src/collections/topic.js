@@ -1,3 +1,4 @@
+/** @module TopicCollection */
 define([
     'backbone',
     'underscore',
@@ -28,6 +29,19 @@ define([
 
         url: 'topics.json',
 
+        /**
+         * Holds cached result of getPopularityBandList method.
+         * @type {null|Array}
+         */
+        bandsCache: null,
+
+        /**
+         * Initializes topic model.
+         */
+        initialize: function () {
+            // clear band cache every time topic data are reloaded
+            this.on('sync', this.clearBandCache, this);
+        },
 
         /**
          * Extracts data from JSON envelope.
@@ -43,32 +57,33 @@ define([
          * @returns {Array}
          */
         getPopularityBandList: function () {
-            var max,
-                min,
-                diff,
-                step,
+            if (this.bandsCache) {
+                return this.bandsCache;
+            }
+
+            var volumeValuesList = this.map(function (topicModel) {
+                    return topicModel.get('volume');
+                }),
+                max = _.max(volumeValuesList),
+                min = _.min(volumeValuesList),
+                diff = max - min,
+                step = diff / POPULARITY_BAND_COUNT,
                 bands = [];
 
-            this.each(function (topicModel) {
-                var volume = topicModel.get('volume');
-
-                if (max < volume || typeof max === 'undefined') {
-                    max = volume;
-                }
-
-                if (min > volume || typeof min === 'undefined') {
-                    min = volume;
-                }
-            });
-
-            diff = max - min;
-            step = diff / 6;
-
-            for (var i = 0; i < 6; i++) {
+            for (var i = 0; i < POPULARITY_BAND_COUNT; i++) {
                 bands.push(Math.floor(step * i));
             }
 
+            this.bandsCache = bands;
+
             return bands;
+        },
+
+        /**
+         * Clears cache for band list returned by getPopularityBandList.
+         */
+        clearBandCache: function () {
+            this.bandsCache = null;
         }
 
     });
