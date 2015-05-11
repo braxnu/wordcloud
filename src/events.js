@@ -1,3 +1,4 @@
+/** @module events */
 define([
     'underscore',
     'backbone'
@@ -7,5 +8,9 @@ define([
 ) {
     'use strict';
 
+    /**
+     * Global event bus instance.
+     * @type {Backbone.Events}
+     */
     return _.extend({}, Backbone.Events);
 });

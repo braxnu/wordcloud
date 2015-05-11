@@ -1,3 +1,4 @@
+/** @module AppView */
 define([
     'backbone',
     'collections/topic',
@@ -11,8 +12,17 @@ define([
 ) {
     'use strict';
 
+    /**
+     * Represents application view.
+     * @class {Backbone.View} AppView
+     */
     return Backbone.View.extend({
 
+        /**
+         * Initializes app view in DOM element given in constructor options.
+         * Instantiates and starts necessary components.
+         * @param {Object} options
+         */
         initialize: function () {
             var topicCollection = new TopicCollection();
 
