@@ -92,6 +92,14 @@ module.exports = function(grunt) {
                     ]
                 }
             }
+        },
+        jsdoc: {
+            dist: {
+                src: ['src/**/*.js'],
+                options: {
+                    destination: 'doc'
+                }
+            }
         }
     });
 
@@ -100,10 +108,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-string-replace');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.registerTask('build', [
         'jshint:all',
         'jasmine:test',
+        'jsdoc:dist',
         'requirejs:compile',
         'copy:main',
         'string-replace:dist'
