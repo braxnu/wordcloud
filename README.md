@@ -11,12 +11,16 @@ Change location to cloned repository (let's call it /repo/ from now on).
 Execute
 
 ```
+# on windows
 npm install
+# on linux/osx
+sudo npm install
+
 bower install
 ```
 
 You can now start your web server in /repo/ directory and point your browser
-to http://localhost/src/ for development and live-changes.
+to http://localhost/src/ for development and live-changes. Make sure url ends with "/" (slash).
 
 
 Execute
